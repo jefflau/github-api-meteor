@@ -1,0 +1,33 @@
+<head>
+  <title>Github API</title>
+</head>
+
+<template name="layout">
+  <div class="container">
+    <h1>Simple Github API implementation</h1>
+    {{>yield}}
+  </div>
+</template>
+
+<template name="home">
+  <form class="form">
+    <div class="input-group">
+      <input type="text" class="form-control" id="username" placeholder="Enter your github username">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">Go!</button>
+      </span>
+    </div><!-- /input-group -->
+  </form>
+</template>
+
+<template name="user">
+  {{#with data.data}}
+    <h1><a href="{{html_url}}">{{login}}</a></h1>
+    <img class="avatar" src="{{avatar_url}}">
+    <dl>
+      <dt>Site: </dt><dd>{{blog}}</dd>
+      <dt>Location: </dt><dd>{{location}}</dd>
+      <dt>Registered: </dt><dd>{{prettyDate created_at}}</dd>
+    </dl>
+  {{/with}}
+</template>
